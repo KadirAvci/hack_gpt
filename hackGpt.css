@@ -1,0 +1,120 @@
+:root{
+    --panel-width: 500px;
+}
+
+article:has(div[data-message-author-role="user"]){
+    background: linear-gradient(270deg, #e91e63, #2196f3, #0f0);
+    background-size: 600% 600%;
+
+    animation: flow 6s ease infinite;
+    scroll-margin-top: 80px;
+}
+
+button[aria-label="Modifier le message"]{
+    border: 1px solid var(--main-surface-tertiary);
+    color: #fff;
+    background: #1e1e1e;
+}
+
+/*_________  Side panel  ___________*/
+.side-panel {
+    position: fixed;
+    top: 0;
+    right: calc(0px - var(--panel-width));
+    width: var(--panel-width);
+    height: 100vh;
+    background-color: var(--main-surface-tertiary);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
+}
+
+.side-panel.open {
+    right: 0;
+}
+
+#sidePanel{
+    overflow: scroll;
+}
+
+.side-panel-header h2{
+    text-transform: uppercase;
+    width: 85%;
+}
+
+.side-panel-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 5px solid rgba(255,255,255,0.6);
+    padding: 20px 15px;
+    background: rgba(66, 66, 66, 0.9);
+    width: var(--panel-width);
+    position: fixed;
+}
+
+.side-panel-actions{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+#closeBtn, #updateBtn{
+    background: #1e1e1e;
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+#closeBtn:hover, #updateBtn:hover{
+    background: rgba(255,255,255,.8);
+    color: #000;
+}
+
+#togglePanelBtn{
+    position: fixed;
+    right: 0;
+    top: 35%;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    text-transform: uppercase;
+    border: 1px solid;
+    border-right: none;
+    padding: 4px;
+    border-radius: 10px 0 0 10px;
+    background: linear-gradient(280deg, #e91e63, #2196f3, #0f0);
+    background-size: 600% 600%;
+    animation: flow 3s ease infinite;
+}
+
+#questionsListBox{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.kad-user-answer{
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    display: -webkit-box;       /* Nécessaire pour activer line-clamp */
+    -webkit-line-clamp: 4;      /* Nombre de lignes visibles */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.kad-user-answer:hover{
+    cursor: pointer;
+    background: linear-gradient(270deg, #e91e63, #2196f3);
+}
+
+/*_______    Animation du background    ________*/
+@keyframes flow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
